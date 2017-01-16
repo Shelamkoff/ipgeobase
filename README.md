@@ -38,7 +38,8 @@ array(11) {
   ["longitude"]=>
   string(7) "37.6176"
 }
-<pre/>
+</pre>
+
 Для всех остальных :
 <pre>
 array(6) {
