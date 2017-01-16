@@ -13,7 +13,7 @@ $data = $geobase->find('217.107.124.206');
 var_dump($data);
 
 Для Российских и Украинских ip:
-
+<pre>
 array(11) {
   ["long_ip1"]=>
   string(10) "3647684608"
@@ -38,7 +38,7 @@ array(11) {
   ["longitude"]=>
   string(7) "37.6176"
 }
-
+<pre/>
 Для всех остальных :
 <pre>
 array(6) {
