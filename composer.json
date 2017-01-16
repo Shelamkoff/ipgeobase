@@ -3,7 +3,7 @@
     "type": "library",
     "description": "IpGeoBase in sql",
     "require": {
-        "php": ">=7",
+        "php": ">= 7.0.0",
     },
     "autoload": {
         "classmap": {
