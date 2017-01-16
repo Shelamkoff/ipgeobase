@@ -1,8 +1,6 @@
-# IpGeoBase
-
 # Установка 
 
-Добавить в composer.json : composer require alestro/ipgeobase dev-master
+$ composer require alestro/ipgeobase dev-master
 
 # Использование :
 
