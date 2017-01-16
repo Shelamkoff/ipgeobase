@@ -6,8 +6,6 @@
         "php": ">= 7.0.0"
     },
     "autoload": {
-        "classmap": {
-            "src"
-        }
+        "classmap": ["src"]
     }
 }
