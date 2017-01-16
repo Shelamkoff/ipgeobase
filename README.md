@@ -1,10 +1,14 @@
 # IpGeoBase
 
+# Установка 
+
 Добавить в composer.json : composer require alestro/ipgeobase dev-master
+
+# Использование :
 
 use IpGeoBase\IpGeoBase;
 
-Использование : $geobase = new IpGeoBase($pdo) или $geobase = new IpGeoBase($dsn, $user, $password);
+$geobase = new IpGeoBase($pdo) или $geobase = new IpGeoBase($dsn, $user, $password);
 
 $geobase->create() // Создаст таблицы geobase и geobase_cities в бд и заполнит их.
 
