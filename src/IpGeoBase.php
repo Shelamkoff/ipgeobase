@@ -197,7 +197,7 @@ class IpGeoBase {
 			}
     		throw new Exception($message);
   		}
-		$zip->extractTo($this->uploadDir.DIRECTORY_SEPARATOR); 
+		$zip->extractTo($this->uploadDir); 
    		$zip->close();
 		unlink($filename);
 	}
