@@ -8,7 +8,7 @@ $geobase->create() // Создаст таблицы geobase и geobase_cities в
 
 $geobase->update() // Обновит базу.
 
-$data = $geobase->find('217.107.124.206');
+$data = $geobase->find('217.107.124.206'); // Выбросит Uncaught Exception: Invalid ip-adress. если ip не валиден и Uncaught Exception: Ip-aress not found in the database. если ip нет в базе
 
 var_dump($data);
 
