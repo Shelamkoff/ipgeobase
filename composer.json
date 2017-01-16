@@ -1,5 +1,5 @@
 {
-    "name": "alestro/IpGeobase",
+    "name": "alestro/IpGeoBase",
     "type": "library",
     "description": "IpGeoBase in sql",
     "require": {
