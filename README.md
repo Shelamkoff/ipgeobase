@@ -40,7 +40,7 @@ array(11) {
 }
 
 Для всех остальных :
-
+<pre>
 array(6) {
   ["long_ip1"]=>
   string(8) "84557824"
@@ -55,4 +55,5 @@ array(6) {
   ["city_id"]=>
   NULL
 }
+</pre>
 
