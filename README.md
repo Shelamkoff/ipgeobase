@@ -1,5 +1,7 @@
 # IpGeoBase
 
+Добавить в composer.json : composer require alestro/ipgeobase dev-master
+
 use IpGeoBase\IpGeoBase;
 
 Использование : $geobase = new IpGeoBase($pdo) или $geobase = new IpGeoBase($dsn, $user, $password);
