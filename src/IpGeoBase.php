@@ -1,6 +1,6 @@
 <?php
 
-namespace alestro;
+namespace alestro\ipgeobase;
 
 use \Exception;
 use \PDO;
