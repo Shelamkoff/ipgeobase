@@ -2,6 +2,7 @@
     "name": "alestro/ipgeobase",
     "type": "library",
     "description": "IpGeoBase in sql",
+    "license": "MIT",
     "require": {
         "php": ">= 7.0.0"
     },
