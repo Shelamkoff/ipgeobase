@@ -4,7 +4,7 @@ $ composer require alestro/ipgeobase dev-master
 
 # Использование :
 
-use alestro\IpGeoBase;
+use alestro\ipgeobase\IpGeoBase;
 
 $geobase = new IpGeoBase($pdo) или $geobase = new IpGeoBase($dsn, $user, $password);
 
