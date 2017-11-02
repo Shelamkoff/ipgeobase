@@ -16,6 +16,14 @@ class IpGeoBase {
 	
 	private $uploadDir;
 	
+	const DB_ARCHIVE_DOWNLOAD_URL = 'http://ipgeobase.ru/files/db/Main/geo_files.zip';
+	
+	const DB_ARCHIVE_NAME = 'geo_files.zip';
+	
+	const CITIES_FILENAME = 'cities.txt';
+	
+	const OPT_FILENAME = 'cidr_optim.txt';
+	
 	
 	public function setUploadDir(string $path) : IpGeoBase {
 		$this->uploadDir = $path;
@@ -110,7 +118,7 @@ class IpGeoBase {
 	public function update(){
 		$sth = $this->pdo->prepare('TRUNCATE  TABLE `geobase_cities`');
 		$sth->execute();
-		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.'cities.txt';
+		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.self::CITIES_FILENAME;
 		if(!file_exists($filename)){
 			$this->getBase();
 		}
@@ -136,7 +144,7 @@ class IpGeoBase {
 		$sth = $this->pdo->prepare('TRUNCATE  TABLE `geobase`');
 		$sth->execute();	
 		unset($sth);
-		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.'cidr_optim.txt';
+		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.self::OPT_FILENAME;
 		if(!file_exists($filename)){
 			$this->getBase();
 		}
@@ -162,15 +170,15 @@ class IpGeoBase {
 }
 
 	private function getBase(){
-		$file = file_get_contents('http://ipgeobase.ru/files/db/Main/geo_files.zip');
-		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.'geo_files.zip';
+		$file = file_get_contents(self::DB_ARCHIVE_DOWNLOAD_URL);
+		$filename = $this->uploadDir.DIRECTORY_SEPARATOR.self::DB_ARCHIVE_NAME;
 		file_put_contents($filename, $file);
 		if(!$file){
-			throw new Exception('Failed download Zip-file from http://ipgeobase.ru/files/db/Main/geo_files.zip.');
+			throw new Exception('Failed download Zip-file from '. self::DB_ARCHIVE_DOWNLOAD_URL.'.');
 		}
 		if(mime_content_type($filename) !== 'application/zip'){
 			unlink($filename);
-			throw new Exception('Invalid file extension. File from http://ipgeobase.ru/files/db/Main/geo_files.zip must be zip-archive. ');
+			throw new Exception('Invalid file extension. File from '.self::DB_ARCHIVE_DOWNLOAD_URL.' must be zip-archive. ');
 		}
 		$zip = new ZipArchive();
 		$result = $zip->open($filename);
