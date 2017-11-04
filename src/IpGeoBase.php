@@ -29,7 +29,12 @@ class IpGeoBase {
 		$this->uploadDir = $path;
 		return $this;
 	}
-		
+	/**
+     	* IpGeoBase constructor.
+     	* @param PDO|string $pdo Instance PDO object or dsn string
+     	* @param null $user
+     	* @param null $password
+     	*/	
 	public function __construct($pdo, $user = null, $password = null){
 		if(!$pdo instanceof PDO){
 			$pdo = new PDO($pdo, $user, $password);
@@ -127,7 +132,7 @@ class IpGeoBase {
     	foreach($file as $row){
         	$row = iconv('windows-1251', 'utf-8', $row);
 			$row = trim(str_replace('	', '&', $row));
-			if($sth === null){
+			if(!isset($sth)){
 				$sth = $this->pdo->prepare("INSERT INTO geobase_cities (city_id, city, region, district, latitude, longitude) VALUES (:id, :city, :reg, :dist, :lat, :lon)");
 			}
 			$ex = explode('&', $row);
@@ -152,7 +157,7 @@ class IpGeoBase {
    		foreach($file as $row){
        		$row = iconv('windows-1251', 'utf-8', $row);
 			$row = trim(str_replace(['	', ' - '],' ', $row));
-			if($sth === null){
+			if(!isset($sth)){
             	$sth = $this->pdo->prepare("INSERT INTO geobase (long_ip1, long_ip2, ip1, ip2, country, city_id) VALUES (:lon1, :lon2, :ip1, :ip2, :country, :city_id )");
 			}
 			$ex = explode(' ', $row);
