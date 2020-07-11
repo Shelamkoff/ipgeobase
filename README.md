@@ -1,6 +1,6 @@
 # Установка 
 
-$ composer require alestro/ipgeobase dev-master
+$ composer require shelamkoff/ipgeobase
 
 # Использование :
 
